@@ -1,7 +1,8 @@
+import Compile from "@/components/Compile";
 import { Editor } from "@/components/Editor";
 import { Header } from "@/components/Header";
 import { LanguageSelect } from "@/components/LanguageSelect";
-import { Questions } from "@/components/Questions";
+import { OptionsTab } from "@/components/OptionsTab";
 
 import { Inter } from "@next/font/google";
 
@@ -13,17 +14,18 @@ const inter = Inter({
 export default function Home() {
   return (
     <div className={inter.variable}>
-      <div className="h-screen w-full bg-neutral-100">
+      <div className="h-screen w-full bg-gray-100">
         <Header />
-        <div className="flex h-[93vh] w-full space-x-2">
-          <div className="h-full w-[45%] bg-white">
-            <Questions />
+        <div className="flex h-[93vh] w-full space-x-2 py-2">
+          <div className="h-full w-[45%]">
+            <OptionsTab />
           </div>
-          <div className="flex h-full w-[55%] flex-col bg-white px-2">
-            <div className="z-10 flex h-[7vh] items-center">
+          <div className="flex h-full w-[55%] flex-col">
+            <div className="z-10 mb-2 flex h-[4vh] items-center">
               <LanguageSelect />
             </div>
             <Editor />
+            <Compile />
           </div>
         </div>
       </div>

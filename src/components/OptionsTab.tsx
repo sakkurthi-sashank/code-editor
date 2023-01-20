@@ -6,24 +6,23 @@ function classNames(...classes: string[]) {
 }
 
 const tabs = [
-  { name: "Statement" },
+  { name: "Description" },
+  { name: "Discussion" },
   { name: "Submission" },
-  { name: "Solution" },
+  { name: "Solutions" },
 ];
 
-export const Questions = () => {
+export const OptionsTab = () => {
   return (
     <Tab.Group>
-      <Tab.List className="flex w-full justify-between border-b border-gray-200">
+      <Tab.List className="flex w-full justify-between">
         {tabs.map((tab) => (
           <Tab
             key={tab.name}
             className={({ selected }) =>
               classNames(
-                "h-12 w-full text-center font-inter font-medium text-gray-700 focus:outline-none",
-                selected
-                  ? "border-b-2 border-blue-500"
-                  : "border-b-2 border-transparent"
+                "h-10 w-full text-center font-inter text-xs font-normal text-gray-600 focus:outline-none",
+                selected ? "rounded-t-md bg-white" : ""
               )
             }
           >
@@ -31,10 +30,11 @@ export const Questions = () => {
           </Tab>
         ))}
       </Tab.List>
-      <Tab.Panels>
+      <Tab.Panels className="h-[87vh] bg-white">
         <Tab.Panel>
           <div className=""></div>
         </Tab.Panel>
+        <Tab.Panel></Tab.Panel>
         <Tab.Panel></Tab.Panel>
         <Tab.Panel></Tab.Panel>
       </Tab.Panels>
