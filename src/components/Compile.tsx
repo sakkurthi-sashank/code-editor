@@ -2,7 +2,7 @@ import React from "react";
 
 const Compile = () => {
   return (
-    <div className="w-full">
+    <div className="mt-2 h-[49%] w-full bg-white">
       <div className="flex w-full justify-end space-x-3 p-2">
         <button className="rounded-md border bg-gray-200 px-3 py-1 text-sm text-gray-700">
           Run
@@ -11,6 +11,7 @@ const Compile = () => {
           Submit
         </button>
       </div>
+      <div></div>
     </div>
   );
 };

@@ -15,13 +15,13 @@ const tabs = [
 export const OptionsTab = () => {
   return (
     <Tab.Group>
-      <Tab.List className="flex w-full justify-between">
+      <Tab.List className="flex h-[6%] w-full justify-between">
         {tabs.map((tab) => (
           <Tab
             key={tab.name}
             className={({ selected }) =>
               classNames(
-                "h-10 w-full text-center font-inter text-xs font-normal text-gray-600 focus:outline-none",
+                "h-full w-full text-center font-inter text-xs font-normal text-gray-600 focus:outline-none",
                 selected ? "rounded-t-md bg-white" : ""
               )
             }
@@ -30,10 +30,8 @@ export const OptionsTab = () => {
           </Tab>
         ))}
       </Tab.List>
-      <Tab.Panels className="h-[87vh] bg-white">
-        <Tab.Panel>
-          <div className=""></div>
-        </Tab.Panel>
+      <Tab.Panels className="h-[94%] bg-white">
+        <Tab.Panel></Tab.Panel>
         <Tab.Panel></Tab.Panel>
         <Tab.Panel></Tab.Panel>
         <Tab.Panel></Tab.Panel>

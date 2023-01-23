@@ -6,7 +6,7 @@ export const Editor = () => {
     <div className="overflow-hidden rounded-sm">
       <MonacoEditor
         theme="vs-dark"
-        height="43vh"
+        height="45vh"
         options={{
           fontSize: 14,
           scrollBeyondLastLine: false,
