@@ -1,5 +1,6 @@
 import React from "react";
 import { Tab } from "@headlessui/react";
+import { Question } from "./Question";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -11,6 +12,7 @@ const tabs = [
   { name: "Submission" },
   { name: "Solutions" },
 ];
+
 export const FeaturesWindow = () => {
   return (
     <div className="h-full w-1/2">
@@ -30,8 +32,10 @@ export const FeaturesWindow = () => {
             </Tab>
           ))}
         </Tab.List>
-        <Tab.Panels className="h-[86vh] bg-white">
-          <Tab.Panel></Tab.Panel>
+        <Tab.Panels className="h-[86vh] overflow-scroll bg-white">
+          <Tab.Panel>
+            <Question />
+          </Tab.Panel>
           <Tab.Panel></Tab.Panel>
           <Tab.Panel></Tab.Panel>
           <Tab.Panel></Tab.Panel>

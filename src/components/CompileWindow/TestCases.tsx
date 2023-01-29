@@ -4,14 +4,20 @@ const testCaseDate = [
   {
     uid: 1,
     name: "Case 1",
-    input: "1 2 3 4 5 6 7 8 9 10",
-    output: "55",
+    input: "[2, 7, 11, 15]",
+    output: "[0, 1]",
   },
   {
     uid: 2,
     name: "Case 2",
-    input: "10 9 8 7 6 5 4 3 2 1",
-    output: "44",
+    input: "[3, 2, 4]",
+    output: "[1, 2]",
+  },
+  {
+    uid: 3,
+    name: "Case 3",
+    input: "[3, 3]",
+    output: "[0, 1]",
   },
 ];
 
