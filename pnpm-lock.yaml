@@ -21,6 +21,7 @@ specifiers:
   react-dom: 18.2.0
   tailwindcss: ^3.2.4
   typescript: 4.9.4
+  zustand: ^4.3.2
 
 dependencies:
   "@headlessui/react": 1.7.7_biqbaboplfbrettd7655fr4n2y
@@ -31,6 +32,7 @@ dependencies:
   next: 13.1.2_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  zustand: 4.3.2_react@18.2.0
 
 devDependencies:
   "@tailwindcss/typography": 0.5.9_tailwindcss@3.2.4
@@ -3555,6 +3557,17 @@ packages:
       punycode: 2.3.0
     dev: true
 
+  /use-sync-external-store/1.2.0_react@18.2.0:
+    resolution:
+      {
+        integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==,
+      }
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /util-deprecate/1.0.2:
     resolution:
       {
@@ -3658,3 +3671,22 @@ packages:
       }
     engines: { node: ">=10" }
     dev: true
+
+  /zustand/4.3.2_react@18.2.0:
+    resolution:
+      {
+        integrity: sha512-rd4haDmlwMTVWVqwvgy00ny8rtti/klRoZjFbL/MAcDnmD5qSw/RZc+Vddstdv90M5Lv6RPgWvm1Hivyn0QgJw==,
+      }
+    engines: { node: ">=12.7.0" }
+    peerDependencies:
+      immer: ">=9.0"
+      react: ">=16.8"
+    peerDependenciesMeta:
+      immer:
+        optional: true
+      react:
+        optional: true
+    dependencies:
+      react: 18.2.0
+      use-sync-external-store: 1.2.0_react@18.2.0
+    dev: false

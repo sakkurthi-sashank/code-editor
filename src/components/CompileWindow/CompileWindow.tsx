@@ -35,6 +35,9 @@ export const CompileWindow = () => {
             <TestCase />
             <Buttons />
           </Tab.Panel>
+          <Tab.Panel>
+            <div className="h-[34vh] bg-white"></div>
+          </Tab.Panel>
         </Tab.Panels>
       </Tab.Group>
     </div>

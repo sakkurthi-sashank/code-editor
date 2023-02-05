@@ -1,6 +1,6 @@
 import { Tab } from "@headlessui/react";
 
-const testCaseDate = [
+export const testCaseDate = [
   {
     uid: 1,
     name: "Case 1",
