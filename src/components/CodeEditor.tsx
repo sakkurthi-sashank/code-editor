@@ -1,20 +1,32 @@
-import React from "react";
-import { CompileWindow } from "./CompileWindow/CompileWindow";
-import { EditorWindow } from "./EditorWindow/EditorWindow";
-import { FeaturesWindow } from "./FeaturesWindow/FeaturesWindow";
-import { Header } from "./Header";
+import { useEditorStore } from "@/store/editorStore";
+import MonacoEditor from "@monaco-editor/react";
 
 export const CodeEditor = () => {
+  const { code, setCode, language } = useEditorStore((state) => ({
+    code: state.code,
+    setCode: state.setCode,
+    language: state.language,
+  }));
+
   return (
-    <div className="h-screen w-full bg-gray-100">
-      <Header />
-      <div className="flex h-[92.5vh] w-full space-x-2 pt-[0.5vh]">
-        <FeaturesWindow />
-        <div className="flex h-full w-1/2 flex-col">
-          <EditorWindow />
-          <CompileWindow />
-        </div>
-      </div>
+    <div>
+      <MonacoEditor
+        height="100vh"
+        options={{
+          fontSize: 14,
+          scrollBeyondLastLine: false,
+          minimap: {
+            enabled: false,
+          },
+          padding: {
+            top: 10,
+          },
+        }}
+        language={language}
+        theme="vs-dark"
+        value={code}
+        onChange={(value) => setCode(value!)}
+      />
     </div>
   );
 };
