@@ -13,6 +13,29 @@ export const CompileAndExecute = () => {
     })
   );
 
+  const checkStatus = async (submissionId: string) => {
+    const result = await fetch(
+      `https://judge0-ce.p.rapidapi.com/submissions/${submissionId}?base64_encoded=true&fields=*`,
+      {
+        method: "GET",
+        headers: {
+          "x-rapidapi-key": process.env.NEXT_PUBLIC_JUDGE0_API_KEY!,
+          "x-rapidapi-host": "judge0-ce.p.rapidapi.com",
+        },
+      }
+    );
+    const resultData = await result.json();
+    if (resultData.status.id <= 2) {
+      setTimeout(() => checkStatus(submissionId), 1000);
+    } else {
+      setOutputDetails(
+        resultData.stdout || resultData.stderr || resultData.compile_output
+      );
+      setProcessing(false);
+    }
+  };
+
+
   const handleOnClick = async () => {
     setProcessing(true);
     const response = await fetch(
@@ -33,21 +56,7 @@ export const CompileAndExecute = () => {
     );
     const data = await response.json();
     const submissionId = data.token;
-    const result = await fetch(
-      `https://judge0-ce.p.rapidapi.com/submissions/${submissionId}?base64_encoded=true&fields=*`,
-      {
-        method: "GET",
-        headers: {
-          "x-rapidapi-key": process.env.NEXT_PUBLIC_JUDGE0_API_KEY!,
-          "x-rapidapi-host": "judge0-ce.p.rapidapi.com",
-        },
-      }
-    );
-    const resultData = await result.json();
-    setOutputDetails(
-      resultData.stdout || resultData.stderr || resultData.compile_output
-    );
-    setProcessing(false);
+    checkStatus(submissionId);
   };
 
   return (
